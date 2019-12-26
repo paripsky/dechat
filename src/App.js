@@ -4,6 +4,8 @@ import './theme.scss';
 import Button from './components/Button';
 import { useDispatch } from 'react-redux';
 import { connectManually } from './store/actions/connect.actions';
+import Container from './components/Container';
+import Input from './components/Input';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,11 +20,15 @@ function App() {
         <span>dechat</span>
       </header>
       <main>
-        <Button onClick={connect}>connect manually</Button>
-        <Button>connect using a server</Button>
-        <input placeholder="enter a key that only your chat partner will know" />
+        <Container direction="column" justify="center" fillHeight>
+          <Input placeholder="enter a key that only your chat partner will know" />
+          <Container>
+            <Button onClick={connect}>connect manually</Button>
+            <Button varient="outline">connect using a server</Button>
+          </Container>
+        </Container>
       </main>
-      <footer>da footah</footer>
+      <footer>dechat &copy; 2020</footer>
     </div>
   );
 }
